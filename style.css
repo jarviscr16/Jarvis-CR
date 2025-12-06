@@ -1,16 +1,18 @@
-/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* BASE */
+/* BACKDROP – PLAYFUL BUT CLEAN */
 body {
-  background: radial-gradient(circle at top, #0a1530, #020617 60%);
-  color: #ffffff;
   font-family: 'Inter', sans-serif;
-  line-height: 1.6;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(61, 130, 255, 0.15), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(255, 200, 60, 0.12), transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(120, 90, 255, 0.12), transparent 40%),
+    #020617;
+  color: white;
 }
 
 /* NAVBAR */
@@ -21,11 +23,9 @@ body {
   padding: 20px 80px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  background: rgba(2, 6, 23, 0.8);
+  background: rgba(2, 6, 23, 0.75);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  z-index: 100;
 }
 
 .logo {
@@ -36,47 +36,46 @@ body {
 }
 
 .nav-links a {
-  color: #e5e7eb;
   margin-left: 30px;
+  color: #e5e7eb;
   text-decoration: none;
-  font-weight: 500;
 }
 
 /* HERO */
 .hero {
-  padding: 180px 20px 140px;
+  padding: 190px 20px 140px;
   text-align: center;
 }
 
 .hero h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 60px;
-  font-weight: 800;
-  letter-spacing: -1px;
+  font-size: 58px;
 }
 
 .hero p {
-  margin-top: 15px;
-  font-size: 18px;
+  margin-top: 16px;
+  max-width: 640px;
+  margin-inline: auto;
   color: #cbd5f5;
 }
 
+/* BUTTON */
 .primary-btn {
   margin-top: 40px;
-  padding: 15px 40px;
+  padding: 15px 42px;
+  border-radius: 12px;
   border: none;
-  border-radius: 10px;
   background: linear-gradient(120deg, #ffd34d, #ffb703);
-  color: #020617;
   font-weight: 700;
+  color: #020617;
   cursor: pointer;
-  transition: all 0.35s ease;
-  box-shadow: 0 0 25px rgba(255, 200, 50, 0.35);
+  box-shadow: 0 0 30px rgba(255, 200, 60, 0.45);
+  transition: all 0.3s ease;
 }
 
 .primary-btn:hover {
-  transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 0 45px rgba(255, 200, 50, 0.6);
+  transform: translateY(-6px);
+  box-shadow: 0 0 55px rgba(255, 200, 60, 0.75);
 }
 
 /* PLANS */
@@ -99,94 +98,63 @@ body {
 
 .plan-card {
   background: linear-gradient(180deg, #071331, #030617);
-  border-radius: 18px;
   padding: 45px 30px;
+  border-radius: 18px;
+  transition: 0.45s ease;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.45s ease;
 }
 
 .plan-card:hover {
-  transform: translateY(-15px) scale(1.05);
-  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.8);
-}
-
-.plan-card h3 {
-  font-size: 24px;
-  margin-bottom: 15px;
+  transform: translateY(-14px) scale(1.04);
 }
 
 .price {
   font-size: 28px;
   font-weight: 800;
   color: #ffcc33;
-  margin-bottom: 25px;
-}
-
-.plan-card ul {
-  list-style: none;
-}
-
-.plan-card li {
-  margin: 12px 0;
-  color: #c7d2fe;
+  margin: 20px 0;
 }
 
 .plan-card button {
-  margin-top: 30px;
+  margin-top: 28px;
   padding: 12px 32px;
   border-radius: 8px;
-  border: 1px solid #ffcc33;
   background: transparent;
+  border: 1px solid #ffcc33;
   color: #ffcc33;
   font-weight: 700;
-  transition: all 0.3s ease;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .plan-card button:hover {
   background: #ffcc33;
   color: #020617;
-  transform: translateY(-5px);
 }
 
 /* WHY */
 .why {
-  padding: 100px 80px;
+  padding: 120px 20px;
   text-align: center;
 }
 
 .why h2 {
+  font-family: 'Playfair Display', serif;
   font-size: 40px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
-.why-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-}
-
-.why-card {
-  padding: 40px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+.why-text {
+  max-width: 720px;
+  margin: auto;
+  color: #cbd5f5;
+  font-size: 17px;
 }
 
 /* CONTACT */
 .contact {
   padding: 100px 20px;
-  background: linear-gradient(180deg, #030617, #020617);
   text-align: center;
-}
-
-.contact h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
-}
-
-.contact p {
-  margin-bottom: 30px;
-  color: #cbd5f5;
 }
 
 /* FOOTER */
@@ -196,4 +164,17 @@ footer {
   color: #8892c6;
 }
 
+.socials {
+  margin-bottom: 14px;
+}
 
+.socials a {
+  color: #ffcc33;
+  font-size: 22px;
+  margin: 0 12px;
+  transition: 0.3s;
+}
+
+.socials a:hover {
+  transform: scale(1.2);
+}
