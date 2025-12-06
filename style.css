@@ -5,59 +5,70 @@
   box-sizing: border-box;
 }
 
-/* ================= CLASH ROYALE ARENA BACKGROUND ================= */
+/* ================= CLASH ROYALE ARENA ================= */
 body {
   font-family: 'Inter', sans-serif;
   color: white;
   min-height: 100vh;
   overflow-x: hidden;
 
-  /* Deep arena base */
+  /* Arena floor + sky */
   background:
-    radial-gradient(circle at 50% 10%, rgba(80,140,255,0.35), transparent 45%),
-    radial-gradient(circle at 20% 60%, rgba(255,200,60,0.22), transparent 45%),
-    radial-gradient(circle at 80% 65%, rgba(160,120,255,0.20), transparent 45%),
-    linear-gradient(180deg, #061739 0%, #030617 100%);
+    /* King tower spotlight */
+    radial-gradient(circle at 50% 0%, rgba(90,140,255,0.45), transparent 38%),
+
+    /* Left lane glow */
+    radial-gradient(circle at 25% 65%, rgba(170,120,255,0.25), transparent 40%),
+
+    /* Right lane glow */
+    radial-gradient(circle at 75% 65%, rgba(255,200,90,0.22), transparent 42%),
+
+    /* Elixir haze */
+    radial-gradient(circle at 50% 85%, rgba(200,100,255,0.28), transparent 45%),
+
+    /* Arena base */
+    linear-gradient(180deg, #081a3a 0%, #04081c 45%, #020617 100%);
 }
 
-/* ================= ARENA LIGHT GLOW ================= */
+/* ================= ARENA ENERGY MOTION ================= */
 body::before,
 body::after {
   content: "";
   position: fixed;
-  inset: -20%;
+  inset: -15%;
   pointer-events: none;
   z-index: -1;
 }
 
-/* Top arena spotlight */
+/* Elixir pulse */
 body::before {
   background:
-    radial-gradient(circle at 50% 0%, rgba(120,170,255,0.25), transparent 45%),
-    radial-gradient(circle at 30% 25%, rgba(255,215,100,0.15), transparent 40%),
-    radial-gradient(circle at 70% 30%, rgba(160,120,255,0.15), transparent 42%);
-  animation: arenaGlow 18s ease-in-out infinite alternate;
+    radial-gradient(circle at 35% 70%, rgba(190,110,255,0.35), transparent 40%),
+    radial-gradient(circle at 65% 75%, rgba(255,215,110,0.25), transparent 38%);
+  animation: elixirPulse 16s ease-in-out infinite;
 }
 
-/* Bottom energy haze */
+/* Tower energy */
 body::after {
   background:
-    radial-gradient(circle at 50% 100%, rgba(255,200,60,0.18), transparent 45%),
-    radial-gradient(circle at 20% 85%, rgba(90,130,255,0.15), transparent 40%),
-    radial-gradient(circle at 80% 90%, rgba(180,130,255,0.14), transparent 42%);
-  animation: arenaGlow 26s ease-in-out infinite alternate-reverse;
+    linear-gradient(
+      90deg,
+      transparent 48%,
+      rgba(120,170,255,0.18) 50%,
+      transparent 52%
+    );
+  animation: laneEnergy 12s linear infinite;
 }
 
-@keyframes arenaGlow {
-  0% {
-    transform: translateY(0) scale(1);
-  }
-  50% {
-    transform: translateY(-18px) scale(1.03);
-  }
-  100% {
-    transform: translateY(0) scale(1);
-  }
+@keyframes elixirPulse {
+  0% { opacity: 0.65; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 0.65; transform: scale(1); }
+}
+
+@keyframes laneEnergy {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(120px); }
 }
 
 /* ================= NAVBAR ================= */
@@ -69,9 +80,9 @@ body::after {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(5, 15, 40, 0.75);
+  background: rgba(5, 15, 45, 0.8);
   backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(130,170,255,0.25);
   z-index: 1000;
 }
 
@@ -79,13 +90,15 @@ body::after {
   font-family: 'Playfair Display', serif;
   font-size: 22px;
   font-weight: 800;
-  color: #ffd24a; /* CR gold */
-  text-shadow: 0 0 25px rgba(255,210,74,0.6);
+  color: #ffd24a;
+  text-shadow:
+    0 0 15px rgba(255,210,74,0.7),
+    0 0 35px rgba(90,140,255,0.4);
 }
 
 .nav-links a {
   margin-left: 32px;
-  color: #dbe3ff;
+  color: #dce6ff;
   text-decoration: none;
   font-weight: 500;
 }
@@ -94,6 +107,18 @@ body::after {
 .hero {
   padding: 200px 20px 150px;
   text-align: center;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #ffd24a, transparent);
 }
 
 .hero h1 {
@@ -102,8 +127,8 @@ body::after {
   font-weight: 800;
   letter-spacing: -1px;
   text-shadow:
-    0 0 30px rgba(120,170,255,0.45),
-    0 6px 40px rgba(0,0,0,0.8);
+    0 0 25px rgba(120,170,255,0.6),
+    0 0 50px rgba(120,170,255,0.4);
 }
 
 .hero p {
@@ -111,31 +136,31 @@ body::after {
   max-width: 680px;
   margin-inline: auto;
   font-size: 17px;
-  color: #cfe0ff;
+  color: #d3ddff;
 }
 
 /* ================= BUTTON ================= */
 .primary-btn {
-  margin-top: 44px;
-  padding: 16px 44px;
+  margin-top: 46px;
+  padding: 16px 46px;
   border-radius: 14px;
   border: none;
   background: linear-gradient(120deg, #ffe066, #ffb703);
-  color: #04102a;
-  font-weight: 800;
-  letter-spacing: 0.4px;
+  color: #08142e;
+  font-weight: 900;
+  letter-spacing: 0.5px;
   cursor: pointer;
   box-shadow:
-    0 0 35px rgba(255,210,74,0.6),
-    inset 0 0 8px rgba(255,255,255,0.4);
+    0 0 40px rgba(255,210,74,0.75),
+    inset 0 0 10px rgba(255,255,255,0.45);
   transition: all 0.3s ease;
 }
 
 .primary-btn:hover {
   transform: translateY(-6px) scale(1.05);
   box-shadow:
-    0 0 60px rgba(255,210,74,0.9),
-    inset 0 0 10px rgba(255,255,255,0.6);
+    0 0 70px rgba(255,210,74,1),
+    inset 0 0 12px rgba(255,255,255,0.7);
 }
 
 /* ================= PLANS ================= */
@@ -147,38 +172,31 @@ body::after {
 .plans h2 {
   font-family: 'Playfair Display', serif;
   font-size: 44px;
-  margin-bottom: 70px;
-}
-
-.plan-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 45px;
+  margin-bottom: 72px;
+  text-shadow: 0 0 25px rgba(90,140,255,0.4);
 }
 
 .plan-card {
   background:
-    linear-gradient(180deg, rgba(20,40,90,0.85), rgba(8,15,35,0.9));
-  padding: 46px 34px;
+    linear-gradient(180deg, rgba(30,55,120,0.92), rgba(10,18,45,0.95));
+  padding: 48px 36px;
   border-radius: 22px;
-  border: 1px solid rgba(255,255,255,0.12);
+  border: 1px solid rgba(140,180,255,0.25);
   transition: 0.45s ease;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.7);
 }
 
 .plan-card:hover {
   transform: translateY(-18px) scale(1.05);
   box-shadow:
-    0 28px 90px rgba(0,0,0,0.9),
-    0 0 40px rgba(120,170,255,0.25);
+    0 0 35px rgba(140,180,255,0.4),
+    0 30px 90px rgba(0,0,0,0.9);
 }
 
 .price {
   font-size: 30px;
   font-weight: 900;
   color: #ffd24a;
-  margin: 22px 0;
-  text-shadow: 0 0 18px rgba(255,210,74,0.6);
+  text-shadow: 0 0 22px rgba(255,210,74,0.7);
 }
 
 /* ================= WHY ================= */
@@ -194,20 +212,21 @@ body::after {
 
 .why-text {
   max-width: 720px;
-  margin: 22px auto 0;
+  margin: 24px auto 0;
   font-size: 17px;
-  color: #cbdafe;
+  color: #d7e0ff;
 }
 
 /* ================= FOOTER ================= */
 footer {
-  padding: 34px;
+  padding: 36px;
   text-align: center;
-  color: #9aa6e8;
+  color: #a8b4ff;
 }
 
 .socials a {
   color: #ffd24a;
   font-size: 24px;
   margin: 0 14px;
+  text-shadow: 0 0 12px rgba(255,210,74,0.6);
 }
