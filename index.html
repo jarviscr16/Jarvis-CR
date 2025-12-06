@@ -1,85 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jarvis CR • Clash Royale Coaching</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jarvis CR Coaching</title>
+
+  <!-- Refined Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-    <header>
-        <div class="logo">Jarvis CR Coaching</div>
-        <nav>
-            <a href="#plans">Plans</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">Jarvis CR Coaching</div>
+    <div class="nav-links">
+      <a href="#plans">Plans</a>
+      <a href="#why">Why Choose Me</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-    <section class="hero">
-        <h1>Become a Better Clash Royale Player</h1>
-        <p>Professional coaching & account grinding to help you reach your dream trophies.</p>
-        <a href="#plans" class="btn">View Coaching Plans</a>
-    </section>
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Become a Better Clash Royale Player</h1>
+    <p>Professional coaching & account grinding to help you reach your dream trophies.</p>
+    <button class="primary-btn">View Coaching Plans</button>
+  </section>
 
-    <section class="plans" id="plans">
-        <h2>Choose Your Plan</h2>
+  <!-- PLANS -->
+  <section id="plans" class="plans">
+    <h2>Choose Your Plan</h2>
 
-        <div class="plan-container">
-            <div class="plan">
-                <h3>Support Plan</h3>
-                <p class="price">FREE</p>
-                <ul>
-                    <li>Subscribe with at least 5 accounts</li>
-                    <li>Support the channel & community</li>
-                    <li>Access to Discord group</li>
-                </ul>
-                <a href="#" class="btn btn-yellow">Get Started</a>
-            </div>
+    <div class="plan-grid">
 
-            <div class="plan">
-                <h3>Weekly Coaching</h3>
-                <p class="price">$10 / week</p>
-                <ul>
-                    <li>1-on-1 weekly coaching calls</li>
-                    <li>Deck building & gameplay review</li>
-                    <li>Live coaching through Discord</li>
-                </ul>
-                <a href="#" class="btn btn-yellow">Buy Now</a>
-            </div>
+      <div class="plan-card">
+        <h3>Support Plan</h3>
+        <div class="price">FREE</div>
+        <ul>
+          <li>Subscribe with 5 accounts</li>
+          <li>Support the community</li>
+          <li>Discord access</li>
+        </ul>
+        <button>Get Started</button>
+      </div>
 
-            <div class="plan">
-                <h3>Account Grinding</h3>
-                <p class="price">10 Subs / 1K trophies</p>
-                <ul>
-                    <li>We push trophies on your account</li>
-                    <li>Safe & strategic grinding</li>
-                    <li>Progress updates on Discord</li>
-                </ul>
-                <a href="#" class="btn btn-yellow">Hire Service</a>
-            </div>
-        </div>
-    </section>
+      <div class="plan-card highlight">
+        <h3>Weekly Coaching</h3>
+        <div class="price">$10 / week</div>
+        <ul>
+          <li>1-on-1 weekly calls</li>
+          <li>Deck & gameplay review</li>
+          <li>Live Discord coaching</li>
+        </ul>
+        <button>Buy Now</button>
+      </div>
 
-    <section class="about" id="about">
-        <h2>Why Choose Me?</h2>
-        <p>
-            I am a competitive Clash Royale player and content creator.
-            My goal is to help players improve without wasting time and money on random strategies.
-            Whether you're stuck at low trophies or aiming for top ladder — I’ll help you reach your goals.
-        </p>
-    </section>
+      <div class="plan-card">
+        <h3>Account Grinding</h3>
+        <div class="price">10 Subs / 1K trophies</div>
+        <ul>
+          <li>Safe grinding</li>
+          <li>Strategic gameplay</li>
+          <li>Progress updates</li>
+        </ul>
+        <button>Hire Service</button>
+      </div>
 
-    <section class="contact" id="contact">
-        <h2>Book a Coaching Call</h2>
-        <p>All coaching happens through <strong>Discord voice calls</strong>.</p>
-        <a href="https://discord.com" target="_blank" class="btn">Join My Discord</a>
-    </section>
+    </div>
+  </section>
 
-    <footer>
-        <p>© 2025 Jarvis CR • All Rights Reserved</p>
-    </footer>
+  <!-- WHY CHOOSE ME -->
+  <section id="why" class="why">
+    <h2>Why Choose Me</h2>
+    <div class="why-grid">
+      <div class="why-card">Pro-Level Game Knowledge</div>
+      <div class="why-card">Personal Coaching Approach</div>
+      <div class="why-card">Proven Trophy Results</div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Join the Discord or message me directly to get started.</p>
+    <button class="primary-btn">Join Discord</button>
+  </section>
+
+  <footer>
+    © 2025 Jarvis CR Coaching
+  </footer>
 
 </body>
 </html>
+
