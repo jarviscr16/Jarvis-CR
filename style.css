@@ -1,0 +1,153 @@
+/* GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #0c1b3c;
+    color: white;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 50px;
+    background: #12275e;
+}
+
+header .logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #f4c21a;
+}
+
+header nav a {
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+header nav a:hover {
+    color: #f4c21a;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 120px 20px;
+    background: url('https://wallpaperaccess.com/full/4282161.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: 800;
+}
+
+.hero p {
+    margin: 15px auto;
+    font-size: 20px;
+    max-width: 700px;
+}
+
+/* BUTTONS */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 30px;
+    background: #1a5bff;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background: #003bd4;
+}
+
+.btn-yellow {
+    background: #f4c21a;
+    color: #0c1b3c;
+}
+
+.btn-yellow:hover {
+    background: #bd9300;
+}
+
+/* PLANS */
+.plans {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.plans h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.plan-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.plan {
+    background: #12275e;
+    padding: 30px;
+    border-radius: 15px;
+    width: 300px;
+    border: 2px solid #f4c21a;
+}
+
+.plan h3 {
+    font-size: 26px;
+}
+
+.plan .price {
+    font-size: 32px;
+    margin: 15px 0;
+    color: #f4c21a;
+}
+
+.plan ul {
+    text-align: left;
+    margin: 20px 0;
+}
+
+.plan ul li {
+    margin: 10px 0;
+}
+
+/* ABOUT + CONTACT */
+.about, .contact {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.about p {
+    max-width: 800px;
+    margin: auto;
+}
+
+.contact p {
+    font-size: 19px;
+    margin-bottom: 20px;
+}
+
+/* FOOTER */
+footer {
+    padding: 18px;
+    text-align: center;
+    background: #12275e;
+    margin-top: 40px;
+}
