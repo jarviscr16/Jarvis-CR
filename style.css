@@ -1,153 +1,199 @@
-/* GENERAL */
+/* RESET */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* BASE */
 body {
-    background: #0c1b3c;
-    color: white;
+  background: radial-gradient(circle at top, #0a1530, #020617 60%);
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
 }
 
-/* HEADER */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 50px;
-    background: #12275e;
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(2, 6, 23, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 100;
 }
 
-header .logo {
-    font-size: 28px;
-    font-weight: 700;
-    color: #f4c21a;
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffcc33;
 }
 
-header nav a {
-    margin-left: 20px;
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-header nav a:hover {
-    color: #f4c21a;
+.nav-links a {
+  color: #e5e7eb;
+  margin-left: 30px;
+  text-decoration: none;
+  font-weight: 500;
 }
 
 /* HERO */
 .hero {
-    text-align: center;
-    padding: 120px 20px;
-    background: url('https://wallpaperaccess.com/full/4282161.jpg');
-    background-size: cover;
-    background-position: center;
+  padding: 180px 20px 140px;
+  text-align: center;
 }
 
 .hero h1 {
-    font-size: 48px;
-    font-weight: 800;
+  font-family: 'Playfair Display', serif;
+  font-size: 60px;
+  font-weight: 800;
+  letter-spacing: -1px;
 }
 
 .hero p {
-    margin: 15px auto;
-    font-size: 20px;
-    max-width: 700px;
+  margin-top: 15px;
+  font-size: 18px;
+  color: #cbd5f5;
 }
 
-/* BUTTONS */
-.btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 14px 30px;
-    background: #1a5bff;
-    border-radius: 8px;
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-    transition: 0.2s;
+.primary-btn {
+  margin-top: 40px;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(120deg, #ffd34d, #ffb703);
+  color: #020617;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  box-shadow: 0 0 25px rgba(255, 200, 50, 0.35);
 }
 
-.btn:hover {
-    background: #003bd4;
-}
-
-.btn-yellow {
-    background: #f4c21a;
-    color: #0c1b3c;
-}
-
-.btn-yellow:hover {
-    background: #bd9300;
+.primary-btn:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 0 45px rgba(255, 200, 50, 0.6);
 }
 
 /* PLANS */
 .plans {
-    padding: 80px 20px;
-    text-align: center;
+  padding: 120px 80px;
+  text-align: center;
 }
 
 .plans h2 {
-    font-size: 36px;
-    margin-bottom: 40px;
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  margin-bottom: 60px;
 }
 
-.plan-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
 }
 
-.plan {
-    background: #12275e;
-    padding: 30px;
-    border-radius: 15px;
-    width: 300px;
-    border: 2px solid #f4c21a;
+.plan-card {
+  background: linear-gradient(180deg, #071331, #030617);
+  border-radius: 18px;
+  padding: 45px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.45s ease;
 }
 
-.plan h3 {
-    font-size: 26px;
+.plan-card:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.8);
 }
 
-.plan .price {
-    font-size: 32px;
-    margin: 15px 0;
-    color: #f4c21a;
+.plan-card h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
 }
 
-.plan ul {
-    text-align: left;
-    margin: 20px 0;
+.price {
+  font-size: 28px;
+  font-weight: 800;
+  color: #ffcc33;
+  margin-bottom: 25px;
 }
 
-.plan ul li {
-    margin: 10px 0;
+.plan-card ul {
+  list-style: none;
 }
 
-/* ABOUT + CONTACT */
-.about, .contact {
-    padding: 80px 20px;
-    text-align: center;
+.plan-card li {
+  margin: 12px 0;
+  color: #c7d2fe;
 }
 
-.about p {
-    max-width: 800px;
-    margin: auto;
+.plan-card button {
+  margin-top: 30px;
+  padding: 12px 32px;
+  border-radius: 8px;
+  border: 1px solid #ffcc33;
+  background: transparent;
+  color: #ffcc33;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.plan-card button:hover {
+  background: #ffcc33;
+  color: #020617;
+  transform: translateY(-5px);
+}
+
+/* WHY */
+.why {
+  padding: 100px 80px;
+  text-align: center;
+}
+
+.why h2 {
+  font-size: 40px;
+  margin-bottom: 50px;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.why-card {
+  padding: 40px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* CONTACT */
+.contact {
+  padding: 100px 20px;
+  background: linear-gradient(180deg, #030617, #020617);
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
 }
 
 .contact p {
-    font-size: 19px;
-    margin-bottom: 20px;
+  margin-bottom: 30px;
+  color: #cbd5f5;
 }
 
 /* FOOTER */
 footer {
-    padding: 18px;
-    text-align: center;
-    background: #12275e;
-    margin-top: 40px;
+  padding: 30px;
+  text-align: center;
+  color: #8892c6;
 }
+
+
