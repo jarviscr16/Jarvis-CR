@@ -2,62 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Request Access</title>
+  <title>Coaching Form</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="background"></div>
 
-<section class="form-box">
-  <h2>Request Access</h2>
+  <form id="requestForm" class="form">
+    <h2>Coaching Request</h2>
 
-  <form id="requestForm">
-    <input id="discord" placeholder="Discord ID" required>
-    <input id="ign" placeholder="In-game Name" required>
-    <input id="email" type="email" placeholder="Email" required>
-    <input id="deck" placeholder="Main Deck">
-    <select id="plan" required>
-      <option value="">Select Plan</option>
-      <option>Creator Support</option>
-      <option>Direct Coaching</option>
-      <option>Account Grinding</option>
+    <input name="discord" placeholder="Discord Username" required>
+    <input name="ingame" placeholder="In-game Name" required>
+    <input name="email" type="email" placeholder="Email" required>
+    <input name="deck" placeholder="Main Deck">
+
+    <select name="plan">
+      <option value="Creator Support">Creator Support</option>
+      <option value="1-on-1 Coaching">1-on-1 Coaching</option>
+      <option value="Advanced Strategy">Advanced Strategy</option>
     </select>
 
-    <button type="submit">Send Request</button>
+    <button type="submit">Submit</button>
   </form>
-</section>
 
 <script>
-const params = new URLSearchParams(window.location.search);
-const plan = params.get("plan");
-if (plan) document.getElementById("plan").value = plan;
+const form = document.getElementById("requestForm");
 
-document.getElementById("requestForm").addEventListener("submit", async (e) => {
+// autofill plan from URL
+const params = new URLSearchParams(window.location.search);
+if (params.get("plan")) {
+  form.plan.value = params.get("plan");
+}
+
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const data = {
-    discord: discord.value,
-    ign: ign.value,
-    email: email.value,
-    deck: deck.value,
-    plan: plan.value
+  const payload = {
+    discord: form.discord.value,
+    ingame: form.ingame.value,
+    email: form.email.value,
+    deck: form.deck.value,
+    plan: form.plan.value
   };
 
   try {
     const res = await fetch("/.netlify/functions/submit-form", {
       method: "POST",
-      body: JSON.stringify(data)
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
     });
 
     if (!res.ok) throw new Error();
 
-    alert("✅ Sent! Check Discord.");
-    e.target.reset();
-
+    alert("✅ Request sent successfully!");
+    form.reset();
   } catch {
-    alert("❌ Failed to send.");
+    alert("❌ Failed to send. Try again later.");
   }
 });
 </script>
-
 </body>
 </html>
