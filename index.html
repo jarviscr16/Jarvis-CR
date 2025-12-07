@@ -1,97 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Jarvis CR | Clash Royale Coaching</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Jarvis CR</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Background Animation -->
-<div class="background">
-  <span></span><span></span><span></span><span></span><span></span>
-</div>
-
-<header>
+<header class="nav">
   <h1>Jarvis CR</h1>
   <nav>
-    <a href="#plans">Plans</a>
-    <a href="#request">Request Access</a>
+    <a href="index.html">Home</a>
+    <a href="plans.html">Plans</a>
   </nav>
 </header>
 
 <section class="hero">
-  <h2>Professional Clash Royale Coaching</h2>
-  <p>Climb trophies. Master gameplay. Learn from experience.</p>
+  <h2>Clash Royale Coaching</h2>
+  <p>From real grind. No pay-to-win shortcuts.</p>
+  <a class="btn" href="plans.html">View Plans</a>
 </section>
-
-<section id="plans" class="plans">
-  <div class="plan">
-    <h3>Creator Support</h3>
-    <p>Minimum 5 subscribers</p>
-    <button onclick="openForm('Creator Support')">Get Plan</button>
-  </div>
-
-  <div class="plan">
-    <h3>Direct Coaching</h3>
-    <p>$10 / week — 1-on-1 coaching</p>
-    <button onclick="openForm('Direct Coaching')">Book Coaching</button>
-  </div>
-
-  <div class="plan">
-    <h3>Account Grinding</h3>
-    <p>Safe trophy pushing</p>
-    <button onclick="openForm('Account Grinding')">Request Access</button>
-  </div>
-</section>
-
-<section id="request" class="form-section">
-  <h2>Request Access</h2>
-  <form id="requestForm">
-    <input id="discord" placeholder="Discord ID" required />
-    <input id="ign" placeholder="In-game Name" required />
-    <input id="email" placeholder="Email" required />
-    <input id="deck" placeholder="Main Deck (optional)" />
-    <select id="plan" required>
-      <option value="">Select Plan</option>
-      <option>Creator Support</option>
-      <option>Direct Coaching</option>
-      <option>Account Grinding</option>
-    </select>
-    <button type="submit">Send Request</button>
-  </form>
-</section>
-
-<script>
-function openForm(plan) {
-  document.getElementById("plan").value = plan;
-  window.location.hash = "#request";
-}
-
-document.getElementById("requestForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const data = {
-    discord: discord.value,
-    ign: ign.value,
-    email: email.value,
-    deck: deck.value,
-    plan: plan.value
-  };
-
-  const res = await fetch("/.netlify/functions/submit-form", {
-    method: "POST",
-    body: JSON.stringify(data)
-  });
-
-  if (res.ok) {
-    alert("✅ Sent! Check Discord.");
-    e.target.reset();
-  } else {
-    alert("❌ Failed to send.");
-  }
-});
-</script>
 
 </body>
 </html>
