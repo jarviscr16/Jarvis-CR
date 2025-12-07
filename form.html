@@ -1,41 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Get Started | Jarvis CR</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Get Plan | Jarvis CR</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="nav">
-  <h1>Jarvis CR</h1>
-</header>
-
 <section class="form-section">
-  <h2>Get Started</h2>
-  <p>Please fill in the details below. I’ll contact you on Discord.</p>
+  <h1>Get Your Plan</h1>
+  <p class="subtitle">Fill the form below — I’ll reach out on Discord.</p>
 
-  <form class="plan-form">
-    <input type="text" name="discord" placeholder="Discord ID" required />
-    <input type="text" name="ign" placeholder="In-game Name" required />
-    <input type="email" name="email" placeholder="Email Address" required />
-    <input type="text" name="deck" placeholder="Main Deck (e.g. Hog EQ)" required />
+  <form id="planForm">
+    <input type="text" placeholder="Discord ID" required>
+    <input type="text" placeholder="In-Game Name" required>
+    <input type="email" placeholder="Email Address" required>
+    <input type="text" placeholder="Main Deck" required>
+    <input type="text" id="plan" placeholder="Chosen Plan" disabled>
 
-    <input
-      type="text"
-      name="plan"
-      id="planInput"
-      placeholder="Chosen Plan"
-      readonly
-    />
-
-    <button type="submit" class="btn-gold">Submit</button>
+    <button type="submit">Submit Request</button>
   </form>
 </section>
 
 <script>
   const params = new URLSearchParams(window.location.search);
-  document.getElementById("planInput").value = params.get("plan") || "";
+  document.getElementById("plan").value = params.get("plan") || "";
+
+  const webhookURL = "https://discord.com/api/webhooks/1447076466096472275/BzdrUaq8ojeRWpNz_qwNVSWDA7WvxAWJ0OEwnOVxBtKx-y8URpah_yRtKvhj5v_spqPy";
+
+  document.getElementById("planForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const inputs = document.querySelectorAll("input");
+    const data = {
+      embeds: [{
+        title: "📩 New Coaching Request",
+        color: 16763904,
+        fields: [
+          { name: "Discord ID", value: inputs[0].value },
+          { name: "In-Game Name", value: inputs[1].value },
+          { name: "Email", value: inputs[2].value },
+          { name: "Main Deck", value: inputs[3].value },
+          { name: "Plan", value: inputs[4].value }
+        ]
+      }]
+    };
+
+    fetch(webhookURL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    }).then(() => {
+      alert("✅ Submitted successfully!");
+      document.getElementById("planForm").reset();
+    });
+  });
 </script>
 
 </body>
