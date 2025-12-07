@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Get Started | Jarvis CR</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="nav">
+  <h1>Jarvis CR</h1>
+</header>
+
+<section class="form-section">
+  <h2>Get Started</h2>
+  <p>Please fill in the details below. I’ll contact you on Discord.</p>
+
+  <form class="plan-form">
+    <input type="text" name="discord" placeholder="Discord ID" required />
+    <input type="text" name="ign" placeholder="In-game Name" required />
+    <input type="email" name="email" placeholder="Email Address" required />
+    <input type="text" name="deck" placeholder="Main Deck (e.g. Hog EQ)" required />
+
+    <input
+      type="text"
+      name="plan"
+      id="planInput"
+      placeholder="Chosen Plan"
+      readonly
+    />
+
+    <button type="submit" class="btn-gold">Submit</button>
+  </form>
+</section>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  document.getElementById("planInput").value = params.get("plan") || "";
+</script>
+
+</body>
+</html>
