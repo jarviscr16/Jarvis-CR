@@ -1,88 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Request Coaching | Jarvis CR</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Request Access | Jarvis CR</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav class="navbar">
-  <div class="logo">Jarvis<span>CR</span></div>
-</nav>
-
-<div class="container">
+<section class="form-wrapper">
   <h1>Request Access</h1>
-  <p>Fill the form below and I’ll contact you on Discord.</p>
+  <p>I’ll contact you on Discord after reviewing your request.</p>
 
-  <form id="coachForm">
-    <input type="text" id="discord" placeholder="Discord ID (e.g. user#1234)" required>
+  <form id="requestForm">
+    <input type="text" id="discord" placeholder="Discord ID (user#1234)" required>
     <input type="text" id="ign" placeholder="In-Game Name" required>
     <input type="email" id="email" placeholder="Email Address" required>
     <input type="text" id="deck" placeholder="Main Deck (optional)">
-
+    
     <select id="plan" required>
       <option value="">Select Plan</option>
-      <option value="Creator Support">Creator Support</option>
-      <option value="Direct Coaching">Direct Coaching</option>
-      <option value="Account Grinding">Account Grinding</option>
+      <option>Creator Support Plan</option>
+      <option>Direct Coaching Access</option>
+      <option>Account Grinding Service</option>
     </select>
 
     <button type="submit">Submit Request</button>
   </form>
-</div>
+</section>
 
-<footer>© 2025 Jarvis CR</footer>
-
-<script>
-/* Auto-fill plan from URL (?plan=...) */
-const params = new URLSearchParams(window.location.search);
-const selectedPlan = params.get("plan");
-if (selectedPlan) {
-  document.getElementById("plan").value = selectedPlan;
-}
-
-/* Form → Discord Webhook */
-document.getElementById("coachForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  const webhookURL = "https://discord.com/api/webhooks/1447076466096472275/BzdrUaq8ojeRWpNz_qwNVSWDA7WvxAWJ0OEwnOVxBtKx-y8URpah_yRtKvhj5v_spqPy";
-
-  const data = {
-    username: "Jarvis CR Coaching",
-    embeds: [
-      {
-        title: "🔥 New Coaching Request",
-        color: 16763904,
-        fields: [
-          { name: "🎮 In-Game Name", value: document.getElementById("ign").value, inline: true },
-          { name: "🗨 Discord", value: document.getElementById("discord").value, inline: true },
-          { name: "📧 Email", value: document.getElementById("email").value, inline: false },
-          { name: "🃏 Main Deck", value: document.getElementById("deck").value || "Not specified", inline: false },
-          { name: "📦 Chosen Plan", value: document.getElementById("plan").value, inline: false }
-        ],
-        footer: {
-          text: "Jarvis CR Coaching System"
-        },
-        timestamp: new Date()
-      }
-    ]
-  };
-
-  fetch(webhookURL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
-  })
-  .then(() => {
-    alert("✅ Request sent successfully! I’ll reach out on Discord.");
-    document.getElementById("coachForm").reset();
-  })
-  .catch(() => {
-    alert("❌ Error sending request. Try again.");
-  });
-});
-</script>
-
+<script src="form.js"></script>
 </body>
 </html>
