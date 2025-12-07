@@ -1,256 +1,103 @@
-/* =========================
-   RESET & BASE
-========================= */
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-html, body {
-  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
-  background: #0b1433;
-  color: #ffffff;
-  min-height: 100vh;
+body {
+  margin: 0;
+  color: white;
+  background: radial-gradient(circle at top, #1b2a6b, #040813);
   overflow-x: hidden;
 }
 
-/* =========================
-   BACKGROUND CANVAS
-========================= */
-#bg-canvas {
+/* Background crown animation */
+.background span {
   position: fixed;
-  inset: 0;
-  z-index: -1;
+  width: 40px;
+  height: 40px;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/3/3f/Crown_icon.svg");
+  background-size: cover;
+  opacity: 0.1;
+  animation: float 20s linear infinite;
+  top: 100%;
 }
 
-/* =========================
-   NAVBAR
-========================= */
-.nav {
+.background span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.background span:nth-child(2) { left: 30%; animation-delay: 4s; }
+.background span:nth-child(3) { left: 50%; animation-delay: 8s; }
+.background span:nth-child(4) { left: 70%; animation-delay: 12s; }
+.background span:nth-child(5) { left: 90%; animation-delay: 16s; }
+
+@keyframes float {
+  from { transform: translateY(0) rotate(0deg); }
+  to { transform: translateY(-120vh) rotate(360deg); }
+}
+
+header {
+  padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 26px 64px;
 }
 
-.nav h1 {
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: 0.4px;
-}
-
-.nav h1 span {
-  color: #FFD24C;
-}
-
-.nav nav a {
-  margin-left: 28px;
+nav a {
+  margin-left: 20px;
+  color: #ffd34d;
   text-decoration: none;
-  font-weight: 500;
-  color: rgba(255,255,255,0.85);
+  font-weight: bold;
 }
 
-.nav nav a:hover {
-  color: #FFD24C;
-}
-
-/* =========================
-   HERO (HOME PAGE)
-========================= */
 .hero {
-  padding: 160px 32px 140px;
+  padding: 80px 40px;
   text-align: center;
 }
 
-.hero h2 {
-  font-size: 58px;
-  font-weight: 800;
-  margin-bottom: 18px;
-}
-
-.hero p {
-  max-width: 720px;
-  margin: auto;
-  font-size: 18px;
-  line-height: 1.7;
-  opacity: 0.92;
-}
-
-.hero-buttons {
-  margin-top: 42px;
-}
-
-/* =========================
-   BUTTONS
-========================= */
-.button,
-button {
-  display: inline-block;
-  padding: 14px 36px;
-  background: linear-gradient(135deg, #FFD24C, #FFC107);
-  color: #000;
-  font-weight: 700;
-  font-size: 15px;
-  text-decoration: none;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 12px 30px rgba(255, 210, 76, 0.35);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.button:hover,
-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 40px rgba(255, 210, 76, 0.45);
-}
-
-.button.ghost {
-  background: rgba(255,255,255,0.08);
-  color: #FFD24C;
-  border: 2px solid rgba(255,210,76,0.5);
-  box-shadow: none;
-  margin-left: 16px;
-}
-
-/* =========================
-   SECTIONS
-========================= */
-section {
-  max-width: 1000px;
-  margin: auto;
-  padding: 90px 32px;
-}
-
-/* =========================
-   CARDS (PLANS & WHY)
-========================= */
-.plans,
-.why {
+.plans {
   display: grid;
-  gap: 36px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  padding: 40px;
 }
 
-.plan-card,
-.why-box,
-.card {
-  background: rgba(255,255,255,0.06);
-  padding: 34px;
-  border-radius: 20px;
+.plan {
+  background: rgba(255,255,255,0.05);
+  padding: 24px;
+  border-radius: 16px;
+  text-align: center;
   backdrop-filter: blur(10px);
 }
 
-.plan-card h3,
-.why-box h2 {
-  margin-bottom: 10px;
-  font-size: 24px;
-  font-weight: 700;
-  color: #FFD24C;
-}
-
-.plan-card p,
-.why-box p {
-  opacity: 0.9;
-  margin-bottom: 24px;
-}
-
-/* =========================
-   FORMS
-========================= */
-.form-wrap {
-  text-align: center;
-}
-
-.form-wrap h2 {
-  font-size: 42px;
-  margin-bottom: 8px;
-}
-
-.subtitle {
-  opacity: 0.8;
-  margin-bottom: 46px;
-}
-
-form {
-  max-width: 520px;
-  margin: auto;
-}
-
-input,
-select {
-  width: 100%;
-  padding: 14px 18px;
-  margin-bottom: 20px;
-  border-radius: 14px;
+.plan button {
+  margin-top: 16px;
+  padding: 12px 24px;
   border: none;
-  outline: none;
-  font-size: 15px;
+  border-radius: 999px;
+  background: #ffd34d;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-input::placeholder {
-  opacity: 0.7;
-}
-
-/* =========================
-   ABOUT / TIMELINE
-========================= */
-.about h2 {
-  text-align: center;
-  font-size: 46px;
-  margin-bottom: 12px;
-}
-
-.timeline {
-  display: grid;
-  gap: 34px;
-  margin-top: 60px;
-}
-
-.timeline-item {
-  background: rgba(255,255,255,0.06);
-  padding: 30px;
+.form-section {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 40px;
+  background: rgba(0,0,0,0.45);
   border-radius: 20px;
 }
 
-.timeline-item h3 {
-  color: #FFD24C;
-  margin-bottom: 8px;
+form input, form select {
+  width: 100%;
+  margin-bottom: 16px;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
 }
 
-.timeline-item.highlight {
-  border: 1px solid rgba(255,210,76,0.5);
-  box-shadow: 0 0 0 1px rgba(255,210,76,0.15);
-}
-
-/* =========================
-   FOOTER
-========================= */
-footer {
-  text-align: center;
-  padding: 40px 0;
-  opacity: 0.6;
-  font-size: 14px;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-@media (max-width: 768px) {
-  .nav {
-    padding: 20px 28px;
-  }
-
-  .hero h2 {
-    font-size: 42px;
-  }
-
-  section {
-    padding: 70px 22px;
-  }
-
-  .button.ghost {
-    display: block;
-    margin: 16px auto 0;
-  }
+form button {
+  width: 100%;
+  padding: 16px;
+  border-radius: 999px;
+  border: none;
+  background: #ffd34d;
+  font-weight: bold;
 }
