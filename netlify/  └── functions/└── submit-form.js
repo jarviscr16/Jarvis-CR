@@ -2,7 +2,7 @@ exports.handler = async (event) => {
   try {
     const data = JSON.parse(event.body);
 
-    const webhook = "PASTE_DISCORD_WEBHOOK_HERE";
+    const webhook = "https://discord.com/api/webhooks/1447076466096472275/BzdrUaq8ojeRWpNz_qwNVSWDA7WvxAWJ0OEwnOVxBtKx-y8URpah_yRtKvhj5v_spqPy";
 
     const payload = {
       username: "Jarvis CR Website",
