@@ -1,280 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jarvis CR — Clash Royale Coaching</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
-
-    body {
-      background: radial-gradient(circle at top, #0a1b3d, #030712);
-      color: #ffffff;
-      overflow-x: hidden;
-    }
-
-    /* Floating crowns background */
-    .crowns {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .crown {
-      position: absolute;
-      font-size: 28px;
-      opacity: 0.08;
-      animation: float linear infinite;
-    }
-
-    @keyframes float {
-      from {
-        transform: translateY(110vh) rotate(0deg);
-      }
-      to {
-        transform: translateY(-120px) rotate(360deg);
-      }
-    }
-
-    header {
-      position: relative;
-      z-index: 1;
-      padding: 32px 80px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    header h1 {
-      font-weight: 900;
-      letter-spacing: -1px;
-    }
-
-    header h1 span {
-      color: #facc15;
-    }
-
-    nav a {
-      margin-left: 32px;
-      color: #cbd5f5;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    nav a:hover {
-      color: #ffffff;
-    }
-
-    .hero {
-      position: relative;
-      z-index: 1;
-      padding: 160px 80px 120px;
-      max-width: 1100px;
-    }
-
-    .hero h2 {
-      font-size: clamp(42px, 6vw, 68px);
-      font-weight: 900;
-      line-height: 1.05;
-      margin-bottom: 24px;
-    }
-
-    .hero p {
-      font-size: 20px;
-      color: #c7d2fe;
-      max-width: 620px;
-      margin-bottom: 40px;
-    }
-
-    .buttons a {
-      display: inline-block;
-      padding: 16px 28px;
-      border-radius: 12px;
-      font-weight: 700;
-      text-decoration: none;
-      margin-right: 16px;
-      transition: all .2s ease;
-    }
-
-    .btn-primary {
-      background: #facc15;
-      color: #020617;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 40px rgba(250,204,21,.35);
-    }
-
-    .btn-secondary {
-      border: 2px solid #334155;
-      color: #e5e7eb;
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255,255,255,.05);
-    }
-
-    section {
-      position: relative;
-      z-index: 1;
-      padding: 120px 80px;
-      max-width: 1200px;
-    }
-
-    section h3 {
-      font-size: 38px;
-      font-weight: 900;
-      margin-bottom: 12px;
-    }
-
-    section p.subtitle {
-      color: #94a3b8;
-      margin-bottom: 56px;
-    }
-
-    .plans {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 32px;
-    }
-
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-      border-radius: 20px;
-      padding: 36px;
-      border: 1px solid rgba(255,255,255,.08);
-      backdrop-filter: blur(10px);
-    }
-
-    .card h4 {
-      font-size: 22px;
-      margin-bottom: 12px;
-    }
-
-    .card ul {
-      list-style: none;
-      margin: 24px 0;
-    }
-
-    .card li {
-      margin-bottom: 12px;
-      color: #c7d2fe;
-    }
-
-    .card a {
-      display: inline-block;
-      margin-top: 12px;
-      color: #facc15;
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    footer {
-      padding: 60px 20px;
-      text-align: center;
-      color: #64748b;
-      font-size: 14px;
-    }
-
-    @media (max-width: 900px) {
-      header, .hero, section {
-        padding-left: 24px;
-        padding-right: 24px;
-      }
-    }
-  </style>
+  <title>Jarvis CR</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Floating Crown Background -->
-  <div class="crowns" id="crowns"></div>
+<div class="crowns">
+  <div class="crown" style="left:10%">👑</div>
+  <div class="crown" style="left:30%">👑</div>
+  <div class="crown" style="left:50%">👑</div>
+  <div class="crown" style="left:70%">👑</div>
+  <div class="crown" style="left:90%">👑</div>
+</div>
 
-  <header>
-    <h1>Jarvis <span>CR</span></h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#plans">Plans</a>
-      <a href="#why">Why</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <div class="hero">
-    <h2>Elite Clash Royale Coaching<br/>Without Pay-to-Win</h2>
-    <p>
-      Champion-level strategy, mindset, and ladder improvement for players grinding from 0–10K trophies.
-    </p>
-    <div class="buttons">
-      <a href="#plans" class="btn-primary">View Plans</a>
-      <a href="#why" class="btn-secondary">Why Choose Me</a>
-    </div>
+<nav class="navbar">
+  <div class="logo">Jarvis<span>CR</span></div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="plans.html">Plans</a>
+    <a href="why.html">Why</a>
   </div>
+</nav>
 
-  <section id="plans">
-    <h3>Choose Your Plan</h3>
-    <p class="subtitle">Simple. Transparent. Built for real progress.</p>
+<div class="container hero">
+  <h1>Elevate Your Clash Royale Game</h1>
+  <p>Champion-level coaching designed for grinders from 0–10K trophies.</p>
+  <a href="plans.html" class="btn primary">View Plans</a>
+  <a href="why.html" class="btn secondary">Why Choose Me</a>
+</div>
 
-    <div class="plans">
-      <div class="card">
-        <h4>Creator Support</h4>
-        <ul>
-          <li>✅ Minimum 5 YouTube subscribers</li>
-          <li>✅ Budget-friendly</li>
-          <li>✅ Community backed</li>
-        </ul>
-        <a href="#">Get Started →</a>
-      </div>
-
-      <div class="card">
-        <h4>Direct Coaching</h4>
-        <ul>
-          <li>✅ $10 per week</li>
-          <li>✅ Replay & live analysis</li>
-          <li>✅ Personal improvement plan</li>
-        </ul>
-        <a href="#">Book Coaching →</a>
-      </div>
-
-      <div class="card">
-        <h4>Account Grinding</h4>
-        <ul>
-          <li>✅ 1K trophies per 10 subs</li>
-          <li>✅ Safe & controlled</li>
-          <li>✅ Serious ladder push</li>
-        </ul>
-        <a href="#">Request Access →</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    © 2025 Jarvis CR — Built for grinders, not pay-to-win.
-  </footer>
-
-  <script>
-    const crownContainer = document.getElementById('crowns');
-
-    for (let i = 0; i < 40; i++) {
-      const crown = document.createElement('div');
-      crown.className = 'crown';
-      crown.innerText = '👑';
-      crown.style.left = Math.random() * 100 + 'vw';
-      crown.style.animationDuration = 20 + Math.random() * 30 + 's';
-      crown.style.fontSize = 18 + Math.random() * 32 + 'px';
-      crown.style.opacity = 0.05 + Math.random() * 0.08;
-      crownContainer.appendChild(crown);
-    }
-  </script>
-
+<footer>© 2025 Jarvis CR</footer>
 </body>
 </html>
