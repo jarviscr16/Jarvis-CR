@@ -1,95 +1,55 @@
-* {
-  box-sizing: border-box;
-  font-family: 'Inter', system-ui, sans-serif;
-}
-
 body {
   margin: 0;
-  background: radial-gradient(circle at top, #20306a, #060b23);
-  color: #fff;
+  font-family: system-ui;
+  background: linear-gradient(135deg, #0a1230, #0f1e4a);
+  color: white;
 }
 
-/* NAV */
-.navbar {
-  padding: 24px 60px;
+#bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+
+.nav {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  padding: 20px 40px;
 }
 
-.navbar span { color: #ffd24c; }
-.navbar a {
-  margin-left: 24px;
+.nav a {
+  margin-left: 20px;
+  color: white;
   text-decoration: none;
-  color: #cbd5ff;
-  font-weight: 500;
 }
 
-/* PLANS */
-.plans-section {
-  padding: 80px 60px;
-  text-align: center;
+.hero, .plans, .why, .form-wrap {
+  padding: 80px 40px;
+  max-width: 1100px;
+  margin: auto;
 }
 
-.plans-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-  gap: 30px;
-  margin-top: 50px;
-}
-
-.plan-card {
-  background: rgba(255,255,255,0.05);
-  border-radius: 18px;
+.plan-card, .why-box {
+  background: rgba(255,255,255,.06);
   padding: 30px;
-  text-align: left;
-  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  margin-bottom: 30px;
 }
 
-.featured {
-  border: 2px solid #ffd24c;
-}
-
-.plan-card h3 { margin-top: 0; }
-.plan-card ul { list-style: none; padding: 0; }
-.plan-card li { margin: 10px 0; }
-
-.cta-btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 20px;
-  background: linear-gradient(135deg, #ffd24c, #ffb703);
-  color: #000;
+.plan-card a, .cta, button {
+  background: #FFD24C;
+  color: black;
+  padding: 12px 24px;
+  border-radius: 999px;
   text-decoration: none;
-  border-radius: 30px;
-  font-weight: 600;
-}
-
-/* FORM */
-.form-wrapper {
-  max-width: 480px;
-  margin: 80px auto;
-  padding: 40px;
-  background: rgba(255,255,255,0.06);
-  border-radius: 20px;
-  backdrop-filter: blur(12px);
-}
-
-.form-wrapper input,
-.form-wrapper select {
-  width: 100%;
-  margin-bottom: 14px;
-  padding: 14px;
-  border-radius: 10px;
-  border: none;
-}
-
-.form-wrapper button {
-  width: 100%;
-  padding: 14px;
-  border-radius: 30px;
-  border: none;
-  background: linear-gradient(135deg,#ffd24c,#ffb703);
+  display: inline-block;
   font-weight: 700;
-  cursor: pointer;
+}
+
+form input, select {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  border: none;
 }
